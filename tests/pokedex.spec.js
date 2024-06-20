@@ -2,7 +2,7 @@
 const { test, expect } = require('@playwright/test');
 
 test('Search Bulbasaur', async ({ page }) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Pokedex/);
@@ -21,7 +21,7 @@ test('Search Bulbasaur', async ({ page }) => {
 
 
 test('Search Nidoran male', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'POKÉMON' }).click();
   await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
@@ -35,7 +35,7 @@ test('Search Nidoran male', async({page}) => {
 });
 
 test('Search Heracross', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'POKÉMON' }).click();
   await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
@@ -50,7 +50,7 @@ test('Search Heracross', async ({page}) => {
 });
 
 test('Search Luvdisc', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'POKÉMON' }).click();
   await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
@@ -64,7 +64,7 @@ test('Search Luvdisc', async ({page}) => {
 });
 
 test('Search Honchkrow', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'POKÉMON' }).click();
   await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
@@ -79,7 +79,7 @@ test('Search Honchkrow', async ({page}) => {
 });
 
 test('Search Cryogonal', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'POKÉMON' }).click();
   await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
@@ -93,7 +93,7 @@ test('Search Cryogonal', async ({page}) => {
 });
 
 test('Search Sylveon', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'POKÉMON' }).click();
   await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
@@ -107,7 +107,7 @@ test('Search Sylveon', async ({page}) => {
 });
 
 test('Search Komala', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'POKÉMON' }).click();
   await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
@@ -121,7 +121,7 @@ test('Search Komala', async ({page}) => {
 });
 
 test('Search Perrserker', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'POKÉMON' }).click();
   await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
@@ -135,7 +135,7 @@ test('Search Perrserker', async ({page}) => {
 });
 
 test('Search Garganacl', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'POKÉMON' }).click();
   await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
@@ -149,7 +149,7 @@ test('Search Garganacl', async ({page}) => {
 });
 
 test('Search Scream Tail', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'POKÉMON' }).click();
   await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
@@ -164,7 +164,7 @@ test('Search Scream Tail', async ({page}) => {
 });
 
 test('Search Iron Hands', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'POKÉMON' }).click();
   await expect(page.getByText('SELECT POKÉMON')).toBeVisible;

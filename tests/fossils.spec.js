@@ -2,7 +2,7 @@
 const { test, expect } = require('@playwright/test');
 
 test.skip('Search Helix Fossil', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'ITEMS' }).click();
   await expect(page.getByText('SELECT ITEM')).toBeVisible();
@@ -14,7 +14,7 @@ test.skip('Search Helix Fossil', async ({page}) => {
 });
 
 test.skip('Search Dome Fossil', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'ITEMS' }).click();
   await expect(page.getByText('SELECT ITEM')).toBeVisible();
@@ -26,7 +26,7 @@ test.skip('Search Dome Fossil', async ({page}) => {
 });
 
 test.skip('Search Old Amber', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'ITEMS' }).click();
   await expect(page.getByText('SELECT ITEM')).toBeVisible();
@@ -38,7 +38,7 @@ test.skip('Search Old Amber', async({page}) => {
 });
 
 test.skip('Search Root Fossil', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'ITEMS' }).click();
   await expect(page.getByText('SELECT ITEM')).toBeVisible();
@@ -50,7 +50,7 @@ test.skip('Search Root Fossil', async ({page}) => {
 });
 
 test.skip('Search Claw Fossil', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'ITEMS' }).click();
   await expect(page.getByText('SELECT ITEM')).toBeVisible();
@@ -62,7 +62,7 @@ test.skip('Search Claw Fossil', async({page}) => {
 });
 
 test.skip('Search Skull Fossil', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'ITEMS' }).click();
   await expect(page.getByText('SELECT ITEM')).toBeVisible();
@@ -74,7 +74,7 @@ test.skip('Search Skull Fossil', async ({page}) => {
 });
 
 test.skip('Search Armor Fossil', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'ITEMS' }).click();
   await expect(page.getByText('SELECT ITEM')).toBeVisible();
@@ -86,7 +86,7 @@ test.skip('Search Armor Fossil', async({page}) => {
 });
 
 test.skip('Search Cover Fossil', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'ITEMS' }).click();
   await expect(page.getByText('SELECT ITEM')).toBeVisible();
@@ -98,7 +98,7 @@ test.skip('Search Cover Fossil', async ({page}) => {
 });
 
 test.skip('Search Plume Fossil', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'ITEMS' }).click();
   await expect(page.getByText('SELECT ITEM')).toBeVisible();
@@ -110,7 +110,7 @@ test.skip('Search Plume Fossil', async({page}) => {
 });
 
 test.skip('Search Jaw Fossil', async ({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'ITEMS' }).click();
   await expect(page.getByText('SELECT ITEM')).toBeVisible();
@@ -121,7 +121,7 @@ test.skip('Search Jaw Fossil', async ({page}) => {
 });
 
 test.skip('Search Sail Fossil', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'ITEMS' }).click();
   await expect(page.getByText('SELECT ITEM')).toBeVisible();
