@@ -2,7 +2,7 @@
 const { test, expect } = require('@playwright/test');
 
 test('Search Normal type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -15,7 +15,7 @@ test('Search Normal type', async({page}) => {
 });
 
 test('Search Fighting type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -27,7 +27,7 @@ test('Search Fighting type', async({page}) => {
 });
 
 test('Search Flying type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -40,7 +40,7 @@ test('Search Flying type', async({page}) => {
 });
 
 test('Search Poison type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -52,7 +52,7 @@ test('Search Poison type', async({page}) => {
 });
 
 test('Search Ground type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -65,7 +65,7 @@ test('Search Ground type', async({page}) => {
 });
 
 test('Search Rock type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -77,7 +77,7 @@ test('Search Rock type', async({page}) => {
 });
 
 test('Search Bug type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -89,7 +89,7 @@ test('Search Bug type', async({page}) => {
 });
 
 test('Search Ghost type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -102,7 +102,7 @@ test('Search Ghost type', async({page}) => {
 });
 
 test('Search Steel type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -115,7 +115,7 @@ test('Search Steel type', async({page}) => {
 });
 
 test('Search Fire type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -127,7 +127,7 @@ test('Search Fire type', async({page}) => {
 });
 
 test('Search Water type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -139,7 +139,7 @@ test('Search Water type', async({page}) => {
 });
 
 test('Search Grass type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -151,7 +151,7 @@ test('Search Grass type', async({page}) => {
 });
 
 test('Search Electric type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -163,7 +163,7 @@ test('Search Electric type', async({page}) => {
 });
 
 test('Search Psychic type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -175,7 +175,7 @@ test('Search Psychic type', async({page}) => {
 });
 
 test('Search Ice type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -187,7 +187,7 @@ test('Search Ice type', async({page}) => {
 });
 
 test('Search Dragon type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -199,7 +199,7 @@ test('Search Dragon type', async({page}) => {
 });
 
 test('Search Dark type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();
@@ -211,7 +211,7 @@ test('Search Dark type', async({page}) => {
 });
 
 test('Search Fairy type', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'TYPES' }).click();
   await expect(page.getByText('SELECT TYPE')).toBeVisible();

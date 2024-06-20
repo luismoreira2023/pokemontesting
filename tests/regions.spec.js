@@ -2,7 +2,7 @@
 const { test, expect } = require('@playwright/test');
 
 test('Search Kanto region', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'REGIONS' }).click();
   await expect(page.getByText('SELECT REGION')).toBeVisible();
@@ -14,7 +14,7 @@ test('Search Kanto region', async({page}) => {
 });
 
 test('Search Johto region', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'REGIONS' }).click();
   await expect(page.getByText('SELECT REGION')).toBeVisible();
@@ -26,7 +26,7 @@ test('Search Johto region', async({page}) => {
 });
 
 test('Search Hoenn region', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'REGIONS' }).click();
   await expect(page.getByText('SELECT REGION')).toBeVisible();
@@ -38,7 +38,7 @@ test('Search Hoenn region', async({page}) => {
 });
 
 test('Search Sinnoh region', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'REGIONS' }).click();
   await expect(page.getByText('SELECT REGION')).toBeVisible();
@@ -50,7 +50,7 @@ test('Search Sinnoh region', async({page}) => {
 });
 
 test('Search Unova region', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'REGIONS' }).click();
   await expect(page.getByText('SELECT REGION')).toBeVisible();
@@ -62,7 +62,7 @@ test('Search Unova region', async({page}) => {
 });
 
 test('Search Kalos region', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'REGIONS' }).click();
   await expect(page.getByText('SELECT REGION')).toBeVisible();
@@ -74,7 +74,7 @@ test('Search Kalos region', async({page}) => {
 });
 
 test('Search Alola region', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'REGIONS' }).click();
   await expect(page.getByText('SELECT REGION')).toBeVisible();
@@ -86,7 +86,7 @@ test('Search Alola region', async({page}) => {
 });
 
 test('Search Galar region', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'REGIONS' }).click();
   await expect(page.getByText('SELECT REGION')).toBeVisible();
@@ -98,7 +98,7 @@ test('Search Galar region', async({page}) => {
 });
 
 test('Search Hisui region', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'REGIONS' }).click();
   await expect(page.getByText('SELECT REGION')).toBeVisible();
@@ -110,7 +110,7 @@ test('Search Hisui region', async({page}) => {
 });
 
 test('Search Paldea region', async({page}) => {
-  await page.goto('https://brunomachadors.github.io/pokedex/');
+  await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByRole('button', { name: 'REGIONS' }).click();
   await expect(page.getByText('SELECT REGION')).toBeVisible();
