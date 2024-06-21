@@ -192,3 +192,99 @@ test('Search Arctovish', async ({page}) => {
   await page.getByRole('button', { name: 'PHOTO' }).click();
   await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
 });
+
+test('Search Misdreavus', async ({page}) => {
+  await page.setViewportSize({width: 1600, height: 900});
+  await page.goto('');
+  await expect(page).toHaveTitle(/Pokedex/);
+  await page.getByRole('button', { name: 'POKÉMON' }).click();
+  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
+  await page.getByPlaceholder('Search pokémon...').fill('Misdreavus');
+  await page.getByRole('button', { name: '#200 MISDREAVUS ghost' }).click();
+  await page.getByRole('button', { name: 'PHOTO' }).click();
+  await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
+});
+
+test('Search Duskull', async ({page}) => {
+  await page.setViewportSize({width: 1600, height: 900});
+  await page.goto('');
+  await expect(page).toHaveTitle(/Pokedex/);
+  await page.getByRole('button', { name: 'POKÉMON' }).click();
+  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
+  await page.getByPlaceholder('Search pokémon...').fill('Duskull');
+  await page.getByRole('button', { name: '#355 DUSKULL ghost' }).click();
+  await page.getByRole('button', { name: 'PHOTO' });
+  await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
+});
+
+test('Search Drifblim', async ({page}) => {
+  await page.setViewportSize({width: 1600, height: 900});
+  await page.goto('');
+  await expect(page).toHaveTitle(/Pokedex/);
+  await page.getByRole('button', { name: 'POKÉMON' }).click();
+  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
+  await page.getByPlaceholder('Search pokémon...').fill('Drifblim');
+  await page.getByRole('button', { name: '#426 DRIFBLIM ghostflying' }).click();
+  await page.getByRole('button', { name: 'PHOTO' });
+  await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
+});
+
+test('Search Chandelure', async ({page}) => {
+  await page.setViewportSize({width: 1600, height: 900});
+  await page.goto('');
+  await expect(page).toHaveTitle(/Pokedex/);
+  await page.getByRole('button', { name: 'POKÉMON' }).click();
+  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
+  await page.getByPlaceholder('Search pokémon...').fill('Chandelure');
+  await page.getByRole('button', { name: '#609 CHANDELURE ghostfire' }).click();
+  await page.getByRole('button', { name: 'PHOTO' });
+  await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
+});
+
+test('Search Trevenant', async ({page}) => {
+  await page.setViewportSize({width: 1600, height: 900});
+  await page.goto('');
+  await expect(page).toHaveTitle(/Pokedex/);
+  await page.getByRole('button', { name: 'POKÉMON' }).click();
+  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
+  await page.getByPlaceholder('Search pokémon...').fill('Trevenant');
+  await page.getByRole('button', { name: '#709 TREVENANT ghostgrass' }).click();
+  await page.getByRole('button', { name: 'PHOTO' });
+  await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
+});
+
+test('Search Sandygast', async ({page}) => {
+  await page.setViewportSize({width: 1600, height: 900});
+  await page.goto('');
+  await expect(page).toHaveTitle(/Pokedex/);
+  await page.getByRole('button', { name: 'POKÉMON' }).click();
+  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
+  await page.getByPlaceholder('Search pokémon...').fill('Sandygast');
+  await page.getByRole('button', { name: '#769 SANDYGAST ghostground' }).click();
+  await page.getByRole('button', { name: 'PHOTO' });
+  await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
+});
+
+test('Search Runerigus', async ({page}) => {
+  await page.setViewportSize({width: 1600, height: 900});
+  await page.goto('');
+  await expect(page).toHaveTitle(/Pokedex/);
+  await page.getByRole('button', { name: 'POKÉMON' }).click();
+  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
+  await page.getByPlaceholder('Search pokémon...').fill('Runerigus');
+  await page.getByRole('button', { name: '#867 RUNERIGUS groundghost' }).click();
+  await page.getByRole('button', { name: 'PHOTO' });
+  await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
+});
+
+test('Search Houndstone', async ({page}) => {
+  await page.setViewportSize({width: 1600, height: 900});
+  await page.goto('');
+  await expect(page).toHaveTitle(/Pokedex/);
+  await page.getByRole('button', { name: 'POKÉMON' }).click();
+  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
+  await page.getByPlaceholder('Search pokémon...').fill('Houndstone');
+  await page.getByRole('button', { name: '#972 HOUNDSTONE ghost' }).click();
+  await page.getByRole('button', { name: 'PHOTO' });
+  await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
+});
