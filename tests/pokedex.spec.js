@@ -6,16 +6,14 @@ test('Search Bulbasaur', async ({ page }) => {
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByRole('button', { name: 'POKÉMON' })).toBeVisible();
-  await expect(page.getByText('SELECT POKÉMON')).toBeVisible();
-  await page.getByRole('button', { name: 'BULBASAUR' }).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
-  await expect(page.locator('div').filter({ hasText: /^GRASS$/ }).first()).toHaveText("GRASS");
-  await expect(page.locator('div').filter({ hasText: /^POISON$/ }).first()).toHaveText("POISON");
+  await page.getByLabel('POKÉMON Button').click();
+  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
+  await page.getByLabel('Select the pokemon bulbasaur').click();
+  await page.getByLabel('Switch to Photo').click();
+  await expect(page.getByLabel('Open image of bulbasaur')).toBeVisible();
+  await page.getByLabel('Switch to Info').click();
+  await expect(page.getByLabel('GRASS')).toHaveText("GRASS");
+  await expect(page.getByLabel('POISON')).toHaveText("POISON");
   await expect(page.getByText('A strange seed was planted on')).toHaveText("A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.");
 });
 
@@ -23,86 +21,80 @@ test('Search Bulbasaur', async ({ page }) => {
 test('Search Nidoran male', async({page}) => {
   await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
-  await page.getByRole('button', {name: 'NIDORAN-M'}).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
-  await expect(page.locator('div').filter({ hasText: /^POISON$/ }).nth(1)).toHaveText("POISON");
+  await page.getByLabel('POKÉMON Button').click();
+  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
+  await page.getByLabel('Select the pokemon nidoran-m').click();
+  await page.getByLabel('Switch to Photo').click();
+  await expect(page.getByLabel('Open image of nidoran-m')).toBeVisible();
+  await page.getByLabel('Switch to Info').click();
+  await expect(page.getByLabel('POISON')).toHaveText("POISON");
   await expect(page.getByText('Stiffens its ears to sense')).toHaveText("Stiffens its ears to sense danger. The larger its horns, the more powerful its secreted venom.")
 });
 
 test('Search Heracross', async ({page}) => {
   await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
-  await page.getByRole('button', {name: 'HERACROSS'}).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
-  await expect(page.locator('div').filter({ hasText: /^BUG$/ }).first()).toHaveText("BUG");
-  await expect(page.locator('div').filter({ hasText: /^FIGHTING$/ }).first()).toHaveText("FIGHTING");
+  await page.getByLabel('POKÉMON Button').click();
+  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
+  await page.getByLabel('Select the pokemon heracross', { exact: true }).click();
+  await page.getByLabel('Switch to Photo').click();
+  await expect(page.getByLabel('Open image of heracross')).toBeVisible();
+  await page.getByLabel('Switch to Info').click();
+  await expect(page.getByText('BUG', { exact: true })).toHaveText("BUG");
+  await expect(page.getByLabel('FIGHTING')).toHaveText("FIGHTING");
   await expect(page.getByText('It is usually docile, but if')).toHaveText("It is usually docile, but if it is disturbed while sipping honey, it chases off the intruder with its horn.")
 });
 
 test('Search Luvdisc', async ({page}) => {
   await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
-  await page.getByRole('button', {name: 'LUVDISC'}).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
-  await expect(page.locator('div').filter({ hasText: /^WATER$/ }).nth(1)).toHaveText("WATER");
+  await page.getByLabel('POKÉMON Button').click();
+  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
+  await page.getByLabel('Select the pokemon luvdisc').click();
+  await page.getByLabel('Switch to Photo').click();
+  await expect(page.getByLabel('Open image of luvdisc')).toBeVisible();
+  await page.getByLabel('Switch to Info').click();
+  await expect(page.getByLabel('WATER')).toHaveText("WATER");
   await expect(page.getByText('LUVDISC live in shallow seas')).toHaveText("LUVDISC live in shallow seas in the tropics. This heart-shaped POKéMON earned its name by swimming afterloving couples it spotted in the ocean’s waves.")
 });
 
 test('Search Honchkrow', async ({page}) => {
   await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
-  await page.getByRole('button', {name: 'HONCHKROW'}).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
-  await expect(page.locator('div').filter({ hasText: /^DARK$/ }).first()).toHaveText("DARK");
-  await expect(page.locator('div').filter({ hasText: /^FLYING$/ }).first()).toHaveText("FLYING");
+  await page.getByLabel('POKÉMON Button').click();
+  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
+  await page.getByLabel('Select the pokemon honchkrow').click();
+  await page.getByLabel('Switch to Photo').click();
+  await expect(page.getByLabel('Open image of honchkrow')).toBeVisible();
+  await page.getByLabel('Switch to Info').click();
+  await expect(page.getByLabel('DARK', { exact: true })).toHaveText("DARK");
+  await expect(page.getByLabel('FLYING')).toHaveText("FLYING");
   await expect(page.getByText('Becoming active at night, it')).toHaveText("Becoming active at night, it is known to swarm with numerous MURKROW in tow.")
 });
 
 test('Search Cryogonal', async ({page}) => {
   await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
-  await page.getByRole('button', {name: 'CRYOGONAL'}).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
-  await expect(page.locator('div').filter({ hasText: /^ICE$/ }).nth(1)).toHaveText("ICE");
+  await page.getByLabel('POKÉMON Button').click();
+  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
+  await page.getByLabel('Select the pokemon cryogonal').click();
+  await page.getByLabel('Switch to Photo').click();
+  await expect(page.getByLabel('Open image of cryogonal')).toBeVisible();
+  await page.getByLabel('Switch to Info').click();
+  await expect(page.getByLabel('ICE', { exact: true })).toHaveText("ICE");
   await expect(page.getByText('When its body temperature')).toHaveText("When its body temperature goes up, it turns into steam and vanishes. When its temperature lowers, it returns to ice.")
 });
 
 test('Search Sylveon', async ({page}) => {
   await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByText('SELECT POKÉMON')).toBeVisible;
-  await page.getByRole('button', {name: 'SYLVEON'}).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByRole('img', { name: 'selectedPokemon' })).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
-  await expect(page.locator('div').filter({ hasText: /^FAIRY$/ }).nth(1)).toHaveText("FAIRY");
+  await page.getByLabel('POKÉMON Button').click();
+  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
+  await page.getByLabel('Select the pokemon sylveon').click();
+  await page.getByLabel('Switch to Photo').click();
+  await expect(page.getByLabel('Open image of sylveon')).toBeVisible();
+  await page.getByLabel('Switch to Info').click();
+  await expect(page.getByLabel('FAIRY', { exact: true })).toHaveText("FAIRY");
   await expect(page.getByText('It sends a soothing aura from')).toHaveText("It sends a soothing aura from its ribbonlike feelers to calm fights.");
 });
 
