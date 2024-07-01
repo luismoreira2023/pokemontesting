@@ -34,11 +34,7 @@ test('Search Dome Fossil', async ({ page }) => {
 
 test('Search Old Amber', async ({ page }) => {
   await fossilInitialSteps(page);
-  await page.getByLabel('Select the fossilold-amber').click();
-  await page.getByLabel('Switch to Photo').click();
-  await expect(page.getByLabel('Image of old-amber')).toBeVisible();
-  await expect(page.getByText('Category:DEX-COMPLETION')).toBeVisible();
-  await page.getByLabel('Switch to Info').click();
+  await selectFossil(page, 'old-amber');
   await expect(page.getByText('Can be revived into an')).toHaveText(
     'Can be revived into an Aerodactyl.'
   );
@@ -46,11 +42,7 @@ test('Search Old Amber', async ({ page }) => {
 
 test('Search Root Fossil', async ({ page }) => {
   await fossilInitialSteps(page);
-  await page.getByLabel('Select the fossilroot-fossil').click();
-  await page.getByLabel('Switch to Photo').click();
-  await expect(page.getByLabel('Image of root-fossil')).toBeVisible();
-  await expect(page.getByText('Category:DEX-COMPLETION')).toBeVisible();
-  await page.getByLabel('Switch to Info').click();
+  await selectFossil(page, 'root-fossil');
   await expect(page.getByText('Can be revived into a Lileep.')).toHaveText(
     'Can be revived into a Lileep.'
   );
@@ -58,11 +50,7 @@ test('Search Root Fossil', async ({ page }) => {
 
 test('Search Claw Fossil', async ({ page }) => {
   await fossilInitialSteps(page);
-  await page.getByLabel('Select the fossilclaw-fossil').click();
-  await page.getByLabel('Switch to Photo').click();
-  await expect(page.getByLabel('Image of claw-fossil')).toBeVisible();
-  await expect(page.getByText('Category:DEX-COMPLETION')).toBeVisible();
-  await page.getByLabel('Switch to Info').click();
+  await selectFossil(page, 'claw-fossil');
   await expect(page.getByText('Can be revived into an')).toHaveText(
     'Can be revived into an Anorith.'
   );
@@ -70,11 +58,7 @@ test('Search Claw Fossil', async ({ page }) => {
 
 test('Search Skull Fossil', async ({ page }) => {
   await fossilInitialSteps(page);
-  await page.getByLabel('Select the fossilskull-fossil').click();
-  await page.getByLabel('Switch to Photo').click();
-  await expect(page.getByLabel('Image of skull-fossil')).toBeVisible();
-  await expect(page.getByText('Category:DEX-COMPLETION')).toBeVisible();
-  await page.getByLabel('Switch to Info').click();
+  await selectFossil(page, 'skull-fossil');
   await expect(page.getByText('Can be revived into a')).toHaveText(
     'Can be revived into a Cranidos.'
   );
@@ -82,11 +66,7 @@ test('Search Skull Fossil', async ({ page }) => {
 
 test('Search Armor Fossil', async ({ page }) => {
   await fossilInitialSteps(page);
-  await page.getByLabel('Select the fossilarmor-fossil').click();
-  await page.getByLabel('Switch to Photo').click();
-  await expect(page.getByLabel('Image of armor-fossil')).toBeVisible();
-  await expect(page.getByText('Category:DEX-COMPLETION')).toBeVisible();
-  await page.getByLabel('Switch to Info').click();
+  await selectFossil(page, 'armor-fossil');
   await expect(page.getByText('Can be revived into a')).toHaveText(
     'Can be revived into a Shieldon.'
   );
@@ -94,11 +74,7 @@ test('Search Armor Fossil', async ({ page }) => {
 
 test('Search Cover Fossil', async ({ page }) => {
   await fossilInitialSteps(page);
-  await page.getByLabel('Select the fossilcover-fossil').click();
-  await page.getByLabel('Switch to Photo').click();
-  await expect(page.getByLabel('Image of cover-fossil')).toBeVisible();
-  await expect(page.getByText('Category:DEX-COMPLETION')).toBeVisible();
-  await page.getByLabel('Switch to Info').click();
+  await selectFossil(page, 'cover-fossil');
   await expect(page.getByText('Can be revived into a')).toHaveText(
     'Can be revived into a tirtouga.'
   );
@@ -106,11 +82,7 @@ test('Search Cover Fossil', async ({ page }) => {
 
 test('Search Plume Fossil', async ({ page }) => {
   await fossilInitialSteps(page);
-  await page.getByLabel('Select the fossilplume-fossil').click();
-  await page.getByLabel('Switch to Photo').click();
-  await expect(page.getByLabel('Image of plume-fossil')).toBeVisible();
-  await expect(page.getByText('Category:DEX-COMPLETION')).toBeVisible();
-  await page.getByLabel('Switch to Info').click();
+  await selectFossil(page, 'plume-fossil');
   await expect(page.getByText('Can be revived into a archen.')).toHaveText(
     'Can be revived into a archen.'
   );
@@ -118,11 +90,7 @@ test('Search Plume Fossil', async ({ page }) => {
 
 test('Search Jaw Fossil', async ({ page }) => {
   await fossilInitialSteps(page);
-  await page.getByLabel('Select the fossiljaw-fossil').click();
-  await page.getByLabel('Switch to Photo').click();
-  await expect(page.getByLabel('Image of jaw-fossil')).toBeVisible();
-  await expect(page.getByText('Category:DEX-COMPLETION')).toBeVisible();
-  await page.getByLabel('Switch to Info').click();
+  await selectFossil(page, 'jaw-fossil');
   await expect(page.getByText('Can be revived into a Tyrunt.')).toHaveText(
     'Can be revived into a Tyrunt.'
   );
@@ -130,11 +98,7 @@ test('Search Jaw Fossil', async ({ page }) => {
 
 test('Search Sail Fossil', async ({ page }) => {
   await fossilInitialSteps(page);
-  await page.getByLabel('Select the fossilsail-fossil').click();
-  await page.getByLabel('Switch to Photo').click();
-  await expect(page.getByLabel('Image of sail-fossil')).toBeVisible();
-  await expect(page.getByText('Category:DEX-COMPLETION')).toBeVisible();
-  await page.getByLabel('Switch to Info').click();
+  await selectFossil(page, 'sail-fossil');
   await expect(page.getByText('Can be revived into an Amaura.')).toHaveText(
     'Can be revived into an Amaura.'
   );
@@ -142,32 +106,20 @@ test('Search Sail Fossil', async ({ page }) => {
 
 test('Search Fossilized Bird', async ({ page }) => {
   await fossilInitialSteps(page);
-  await page.getByLabel('Select the fossilfossilized-bird').click();
-  await page.getByLabel('Switch to Photo').click();
-  await expect(page.getByLabel('Image of fossilized-bird')).toBeVisible();
-  await expect(page.getByText('Category:DEX-COMPLETION')).toBeVisible();
+  await selectFossil(page, 'fossilized-bird');
 });
 
 test('Search Fossilized Fish', async ({ page }) => {
   await fossilInitialSteps(page);
-  await page.getByLabel('Select the fossilfossilized-fish').click();
-  await page.getByLabel('Switch to Photo').click();
-  await expect(page.getByLabel('Image of fossilized-fish')).toBeVisible();
-  await expect(page.getByText('Category:DEX-COMPLETION')).toBeVisible();
+  await selectFossil(page, 'fossilized-fish');
 });
 
 test('Search Fossilized Drake', async ({ page }) => {
   await fossilInitialSteps(page);
-  await page.getByLabel('Select the fossilfossilized-drake').click();
-  await page.getByLabel('Switch to Photo').click();
-  await expect(page.getByLabel('Image of fossilized-drake')).toBeVisible();
-  await expect(page.getByText('Category:DEX-COMPLETION')).toBeVisible();
+  await selectFossil(page, 'fossilized-drake');
 });
 
 test('Search Fossilized Dino', async ({ page }) => {
   await fossilInitialSteps(page);
-  await page.getByLabel('Select the fossilfossilized-dino').click();
-  await page.getByLabel('Switch to Photo').click();
-  await expect(page.getByLabel('Image of fossilized-dino')).toBeVisible();
-  await expect(page.getByText('Category:DEX-COMPLETION')).toBeVisible();
+  await selectFossil(page, 'fossilized-dino');
 });
