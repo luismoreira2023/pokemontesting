@@ -1,15 +1,17 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
+
+
 test('Search Gengar', async ({ page }) => {
   await page.setViewportSize({ width: 1600, height: 900 });
   await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
+  await page.getByLabel('POKÉMON Button').click();
   await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
   await page.getByPlaceholder('Search pokémon...').fill('Gengar');
   await page.getByLabel('Select the pokemon Gengar').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
+  await page.getByLabel('Switch to Photo').click();
   await expect(page.getByLabel('Open image of gengar')).toBeVisible();
 });
 

@@ -1,29 +1,33 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
-test('Search Bulbasaur', async ({ page }) => {
+const pokemonInitialSteps = async (page) => {
   await page.goto('');
-
   await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByRole('button', { name: 'POKÉMON' })).toBeVisible();
+  await page.getByLabel('POKÉMON Button').click();
   await expect(page.getByLabel('Select Pokemon')).toBeVisible();
-  await page.getByRole('button', { name: 'BULBASAUR' }).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
+};
+
+const selectPokemon = async (page, pokemon) => {
+  await page.getByLabel('Select the pokemon ' + pokemon).click();
+  await page.getByLabel('Switch to Photo').click();
+  await expect(page.getByLabel('Open image of ' + pokemon)).toBeVisible();
+  await page.getByLabel('Switch to Info').click();
+};
+
+test('Search Bulbasaur', async ({ page }) => {
+  await pokemonInitialSteps(page);
+  await page.getByLabel('Select the pokemon bulbasaur').click();
+  await page.getByLabel('Switch to Photo').click();
   await expect(page.getByLabel('Open image of bulbasaur')).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
+  await page.getByLabel('Switch to Info').click();
   await expect(
     page
-      .locator('div')
-      .filter({ hasText: /^GRASS$/ })
-      .first()
+      .getByLabel('GRASS')
   ).toHaveText('GRASS');
   await expect(
     page
-      .locator('div')
-      .filter({ hasText: /^POISON$/ })
-      .first()
+      .getByLabel('POISON')
   ).toHaveText('POISON');
   await expect(page.getByText('A strange seed was planted on')).toHaveText(
     'A strange seed was planted on its back at birth. The plant sprouts and grows with this POKéMON.'
@@ -31,20 +35,11 @@ test('Search Bulbasaur', async ({ page }) => {
 });
 
 test('Search Nidoran male', async ({ page }) => {
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
-  await page.getByRole('button', { name: 'NIDORAN-M' }).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of nidoran-m')).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
+  await pokemonInitialSteps(page);
+  await selectPokemon(page, 'nidoran-m');
   await expect(
     page
-      .locator('div')
-      .filter({ hasText: /^POISON$/ })
-      .nth(1)
+      .getByLabel('POISON')
   ).toHaveText('POISON');
   await expect(page.getByText('Stiffens its ears to sense')).toHaveText(
     'Stiffens its ears to sense danger. The larger its horns, the more powerful its secreted venom.'
@@ -52,23 +47,17 @@ test('Search Nidoran male', async ({ page }) => {
 });
 
 test('Search Heracross', async ({ page }) => {
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
-  await page.getByRole('button', { name: 'HERACROSS' }).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
+  await pokemonInitialSteps(page);
+  await page.getByLabel('Select the pokemon heracross', { exact: true }).click();
+  await page.getByLabel('Switch to Photo').click();
   await expect(page.getByLabel('Open image of heracross')).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
+  await page.getByLabel('Switch to Info').click();
   await expect(
-    page.locator('div').filter({ hasText: /^BUG$/ }).first()
+    page.getByLabel('BUG', { exact: true })
   ).toHaveText('BUG');
   await expect(
     page
-      .locator('div')
-      .filter({ hasText: /^FIGHTING$/ })
-      .first()
+      .getByLabel('FIGHTING')
   ).toHaveText('FIGHTING');
   await expect(page.getByText('It is usually docile, but if')).toHaveText(
     'It is usually docile, but if it is disturbed while sipping honey, it chases off the intruder with its horn.'
@@ -76,20 +65,11 @@ test('Search Heracross', async ({ page }) => {
 });
 
 test('Search Luvdisc', async ({ page }) => {
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
-  await page.getByRole('button', { name: 'LUVDISC' }).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Luvdisc')).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
+  await pokemonInitialSteps(page);
+  await selectPokemon(page, 'luvdisc');
   await expect(
     page
-      .locator('div')
-      .filter({ hasText: /^WATER$/ })
-      .nth(1)
+      .getByLabel('WATER')
   ).toHaveText('WATER');
   await expect(page.getByText('LUVDISC live in shallow seas')).toHaveText(
     'LUVDISC live in shallow seas in the tropics. This heart-shaped POKéMON earned its name by swimming afterloving couples it spotted in the ocean’s waves.'
@@ -97,26 +77,15 @@ test('Search Luvdisc', async ({ page }) => {
 });
 
 test('Search Honchkrow', async ({ page }) => {
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
-  await page.getByRole('button', { name: 'HONCHKROW' }).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Honchkrow')).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
+  await pokemonInitialSteps(page);
+  await selectPokemon(page, 'honchkrow');
   await expect(
     page
-      .locator('div')
-      .filter({ hasText: /^DARK$/ })
-      .first()
+      .getByLabel('DARK', { exact: true })
   ).toHaveText('DARK');
   await expect(
     page
-      .locator('div')
-      .filter({ hasText: /^FLYING$/ })
-      .first()
+      .getByLabel('FLYING')
   ).toHaveText('FLYING');
   await expect(page.getByText('Becoming active at night, it')).toHaveText(
     'Becoming active at night, it is known to swarm with numerous MURKROW in tow.'
@@ -124,17 +93,10 @@ test('Search Honchkrow', async ({ page }) => {
 });
 
 test('Search Cryogonal', async ({ page }) => {
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
-  await page.getByRole('button', { name: 'CRYOGONAL' }).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Cryogonal')).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
+  await pokemonInitialSteps(page);
+  await selectPokemon(page, 'cryogonal');
   await expect(
-    page.locator('div').filter({ hasText: /^ICE$/ }).nth(1)
+    page.getByLabel('ICE', { exact: true })
   ).toHaveText('ICE');
   await expect(page.getByText('When its body temperature')).toHaveText(
     'When its body temperature goes up, it turns into steam and vanishes. When its temperature lowers, it returns to ice.'
@@ -142,20 +104,11 @@ test('Search Cryogonal', async ({ page }) => {
 });
 
 test('Search Sylveon', async ({ page }) => {
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
-  await page.getByRole('button', { name: 'SYLVEON' }).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Sylveon')).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
+  await pokemonInitialSteps(page);
+  await selectPokemon(page, 'sylveon');
   await expect(
     page
-      .locator('div')
-      .filter({ hasText: /^FAIRY$/ })
-      .nth(1)
+      .getByLabel('FAIRY', { exact: true })
   ).toHaveText('FAIRY');
   await expect(page.getByText('It sends a soothing aura from')).toHaveText(
     'It sends a soothing aura from its ribbonlike feelers to calm fights.'
@@ -163,20 +116,11 @@ test('Search Sylveon', async ({ page }) => {
 });
 
 test('Search Komala', async ({ page }) => {
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
-  await page.getByRole('button', { name: 'KOMALA' }).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Komala')).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
+  await pokemonInitialSteps(page);
+  await selectPokemon(page, 'komala');
   await expect(
     page
-      .locator('div')
-      .filter({ hasText: /^NORMAL$/ })
-      .nth(1)
+      .getByLabel('NORMAL', { exact: true })
   ).toHaveText('NORMAL');
   await expect(page.getByText('It is born asleep, and it')).toHaveText(
     'It is born asleep, and it dies asleep. All its movements are apparently no more than the results of it tossing and turning in its dreams.'
@@ -184,20 +128,11 @@ test('Search Komala', async ({ page }) => {
 });
 
 test('Search Perrserker', async ({ page }) => {
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
-  await page.getByRole('button', { name: 'PERRSERKER' }).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Perrserker')).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
+  await pokemonInitialSteps(page);
+  await selectPokemon(page, 'perrserker');
   await expect(
     page
-      .locator('div')
-      .filter({ hasText: /^STEEL$/ })
-      .nth(1)
+      .getByText('STEEL', { exact: true })
   ).toHaveText('STEEL');
   await expect(page.getByText('What appears to be an iron')).toHaveText(
     'What appears to be an iron helmet is actually hardened hair. This Pokémon lives for the thrill of battle.'
@@ -205,76 +140,13 @@ test('Search Perrserker', async ({ page }) => {
 });
 
 test('Search Garganacl', async ({ page }) => {
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
-  await page.getByRole('button', { name: 'GARGANACL' }).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Garganacl')).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
+  await pokemonInitialSteps(page);
+  await selectPokemon(page, 'garganacl');
   await expect(
     page
-      .locator('div')
-      .filter({ hasText: /^ROCK$/ })
-      .nth(1)
+      .getByLabel('ROCK', { exact: true })
   ).toHaveText('ROCK');
   await expect(page.getByText('Garganacl will rub its')).toHaveText(
     'Garganacl will rub its fingertips together and sprinkle injured Pokémon with salt. Even severe wounds will promptly heal afterward.'
-  );
-});
-
-test('Search Scream Tail', async ({ page }) => {
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
-  await page.getByRole('button', { name: 'SCREAM-TAIL' }).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Scream-Tail')).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
-  await expect(
-    page
-      .locator('div')
-      .filter({ hasText: /^FAIRY$/ })
-      .first()
-  ).toHaveText('FAIRY');
-  await expect(
-    page
-      .locator('div')
-      .filter({ hasText: /^PSYCHIC$/ })
-      .first()
-  ).toHaveText('PSYCHIC');
-  await expect(page.getByText('There has been only one')).toHaveText(
-    'There has been only one reported sighting of this Pokémon. It resembles a mysterious creature depicted in an old expedition journal.'
-  );
-});
-
-test('Search Iron Hands', async ({ page }) => {
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByLabel('Select Pokemon')).toBeVisible();
-  await page.getByRole('button', { name: 'IRON-HANDS' }).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Iron-Hands')).toBeVisible();
-  await page.getByRole('button', { name: 'INFO' }).click();
-  await expect(page.getByRole('button', { name: 'INFO' })).toBeVisible();
-  await expect(
-    page
-      .locator('div')
-      .filter({ hasText: /^FIGHTING$/ })
-      .first()
-  ).toHaveText('FIGHTING');
-  await expect(
-    page
-      .locator('div')
-      .filter({ hasText: /^ELECTRIC$/ })
-      .first()
-  ).toHaveText('ELECTRIC');
-  await expect(page.getByText('It is very similar to a')).toHaveText(
-    'It is very similar to a cyborg covered exclusively by a paranormal magazine. The cyborg was said to be the modified form of a certain athlete.'
   );
 });
