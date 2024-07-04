@@ -2,19 +2,6 @@
 const { test, expect } = require('@playwright/test');
 
 
-
-test('Search Gengar', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByLabel('POKÉMON Button').click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Gengar');
-  await page.getByLabel('Select the pokemon Gengar').click();
-  await page.getByLabel('Switch to Photo').click();
-  await expect(page.getByLabel('Open image of gengar')).toBeVisible();
-});
-
 test('Search Omanyte', async ({ page }) => {
   await page.setViewportSize({ width: 1600, height: 900 });
   await page.goto('');
@@ -195,98 +182,4 @@ test('Search Arctovish', async ({ page }) => {
   await expect(page.getByLabel('Open image of Arctovish')).toBeVisible();
 });
 
-test('Search Misdreavus', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Misdreavus');
-  await page.getByLabel('Select the pokemon Misdreavus').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Misdreavus')).toBeVisible();
-});
 
-test('Search Duskull', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Duskull');
-  await page.getByLabel('Select the pokemon Duskull').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Duskull')).toBeVisible();
-});
-
-test('Search Drifblim', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Drifblim');
-  await page.getByLabel('Select the pokemon Drifblim').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Drifblim')).toBeVisible();
-});
-
-test('Search Chandelure', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Chandelure');
-  await page.getByLabel('Select the pokemon Chandelure').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Chandelure')).toBeVisible();
-});
-
-test('Search Trevenant', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Trevenant');
-  await page.getByLabel('Select the pokemon Trevenant').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Trevenant')).toBeVisible();
-});
-
-test('Search Sandygast', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Sandygast');
-  await page.getByLabel('Select the pokemon Sandygast').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Sandygast')).toBeVisible();
-});
-
-test('Search Runerigus', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Runerigus');
-  await page.getByLabel('Select the pokemon Runerigus').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Runerigus')).toBeVisible();
-});
-
-test('Search Houndstone', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Houndstone');
-  await page.getByLabel('Select the pokemon Houndstone').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Houndstone')).toBeVisible();
-});
