@@ -17,109 +17,191 @@ const selectFossil = async (page, fossil) => {
 };
 
 test('Search Helix Fossil', async ({ page }) => {
-  await fossilInitialSteps(page);
-  await selectFossil(page, 'helix-fossil');
-  await expect(page.getByText('Can be revived into an')).toHaveText(
-    'Can be revived into an Omanyte.'
-  );
+  await test.step("fossil initial steps", async () => {
+    await fossilInitialSteps(page);
+  });
+  await test.step("select fossil", async () => {
+    await selectFossil(page, 'helix-fossil');
+  });
+  await test.step("validate info", async () => {
+    await expect(page.getByText('Can be revived into an')).toHaveText(
+      'Can be revived into an Omanyte.'
+    );
+  });
 });
 
 test('Search Dome Fossil', async ({ page }) => {
-  await fossilInitialSteps(page);
-  await selectFossil(page, 'dome-fossil');
-  await expect(page.getByText('Can be revived into a Kabuto.')).toHaveText(
-    'Can be revived into a Kabuto.'
-  );
+  await test.step("fossil initial steps", async () => {
+    await fossilInitialSteps(page);
+  });
+  await test.step("select fossil", async () => {
+    await selectFossil(page, 'dome-fossil');
+  });
+  await test.step("validate info", async () => {
+    await expect(page.getByText('Can be revived into a Kabuto.')).toHaveText(
+      'Can be revived into a Kabuto.'
+    );
+  }); 
 });
 
 test('Search Old Amber', async ({ page }) => {
-  await fossilInitialSteps(page);
-  await selectFossil(page, 'old-amber');
-  await expect(page.getByText('Can be revived into an')).toHaveText(
-    'Can be revived into an Aerodactyl.'
-  );
+  await test.step("fossil initial steps", async () => {
+    await fossilInitialSteps(page);
+  });
+  await test.step("select fossil", async () => {
+    await selectFossil(page, 'old-amber');
+  });
+  await test.step("validate info", async () => {
+    await expect(page.getByText('Can be revived into an')).toHaveText(
+      'Can be revived into an Aerodactyl.'
+    );
+  });
 });
 
 test('Search Root Fossil', async ({ page }) => {
-  await fossilInitialSteps(page);
-  await selectFossil(page, 'root-fossil');
-  await expect(page.getByText('Can be revived into a Lileep.')).toHaveText(
-    'Can be revived into a Lileep.'
-  );
+  await test.step("fossil initial steps", async () => {
+    await fossilInitialSteps(page);
+  });
+  await test.step("select fossil", async () => {
+    await selectFossil(page, 'root-fossil');
+  });
+  await test.step("validate info", async () => {
+    await expect(page.getByText('Can be revived into a Lileep.')).toHaveText(
+      'Can be revived into a Lileep.'
+    );
+  });
 });
 
 test('Search Claw Fossil', async ({ page }) => {
-  await fossilInitialSteps(page);
-  await selectFossil(page, 'claw-fossil');
-  await expect(page.getByText('Can be revived into an')).toHaveText(
-    'Can be revived into an Anorith.'
-  );
+  await test.step("fossil initial steps", async () => {
+    await fossilInitialSteps(page);
+  });
+  await test.step("select fossil", async () => {
+    await selectFossil(page, 'claw-fossil');
+  });
+  await test.step("validate info", async () => {
+    await expect(page.getByText('Can be revived into an')).toHaveText(
+      'Can be revived into an Anorith.'
+    );
+  });
 });
 
 test('Search Skull Fossil', async ({ page }) => {
-  await fossilInitialSteps(page);
-  await selectFossil(page, 'skull-fossil');
-  await expect(page.getByText('Can be revived into a')).toHaveText(
-    'Can be revived into a Cranidos.'
-  );
+  await test.step("fossil initial steps", async () => {
+    await fossilInitialSteps(page);
+  });
+  await test.step("select fossil", async () => {
+    await selectFossil(page, 'skull-fossil');
+  });
+  await test.step("validate info", async () => {
+    await expect(page.getByText('Can be revived into a')).toHaveText(
+      'Can be revived into a Cranidos.'
+    );
+  });
 });
 
 test('Search Armor Fossil', async ({ page }) => {
-  await fossilInitialSteps(page);
-  await selectFossil(page, 'armor-fossil');
-  await expect(page.getByText('Can be revived into a')).toHaveText(
-    'Can be revived into a Shieldon.'
-  );
+  await test.step("fossil initial steps", async () => {
+    await fossilInitialSteps(page);
+  });
+  await test.step("select fossil", async () => {
+    await selectFossil(page, 'armor-fossil');
+  });
+  await test.step("validate info", async () => {
+    await expect(page.getByText('Can be revived into a')).toHaveText(
+      'Can be revived into a Shieldon.'
+    );
+  });
 });
 
 test('Search Cover Fossil', async ({ page }) => {
-  await fossilInitialSteps(page);
-  await selectFossil(page, 'cover-fossil');
-  await expect(page.getByText('Can be revived into a')).toHaveText(
-    'Can be revived into a tirtouga.'
-  );
+  await test.step("fossil initial steps", async () => {
+    await fossilInitialSteps(page);
+  });
+  await test.step("select fossil", async () => {
+    await selectFossil(page, 'cover-fossil');
+  });
+  await test.step("validate info", async () => {
+    await expect(page.getByText('Can be revived into a')).toHaveText(
+      'Can be revived into a tirtouga.'
+    );
+  });
 });
 
 test('Search Plume Fossil', async ({ page }) => {
-  await fossilInitialSteps(page);
-  await selectFossil(page, 'plume-fossil');
-  await expect(page.getByText('Can be revived into a archen.')).toHaveText(
-    'Can be revived into a archen.'
-  );
+  await test.step("fossil initial steps", async () => {
+    await fossilInitialSteps(page);
+  });
+  await test.step("select fossil", async () => {
+    await selectFossil(page, 'plume-fossil');
+  });
+  await test.step("validate info", async () => {
+    await expect(page.getByText('Can be revived into a archen.')).toHaveText(
+      'Can be revived into a archen.'
+    );
+  });
 });
 
 test('Search Jaw Fossil', async ({ page }) => {
-  await fossilInitialSteps(page);
-  await selectFossil(page, 'jaw-fossil');
-  await expect(page.getByText('Can be revived into a Tyrunt.')).toHaveText(
-    'Can be revived into a Tyrunt.'
-  );
+  await test.step("fossil initial steps", async () => {
+    await fossilInitialSteps(page);
+  });
+  await test.step("select fossil", async () => {
+    await selectFossil(page, 'jaw-fossil');
+  });
+  await test.step("validate info", async () => {
+    await expect(page.getByText('Can be revived into a Tyrunt.')).toHaveText(
+      'Can be revived into a Tyrunt.'
+    );
+  });
 });
 
 test('Search Sail Fossil', async ({ page }) => {
-  await fossilInitialSteps(page);
-  await selectFossil(page, 'sail-fossil');
-  await expect(page.getByText('Can be revived into an Amaura.')).toHaveText(
-    'Can be revived into an Amaura.'
-  );
+  await test.step("fossil initial steps", async () => {
+    await fossilInitialSteps(page);
+  });
+  await test.step("select fossil", async () => {
+    await selectFossil(page, 'sail-fossil');
+  });
+  await test.step("validate info", async () => {
+    await expect(page.getByText('Can be revived into an Amaura.')).toHaveText(
+      'Can be revived into an Amaura.'
+    );
+  });
 });
 
 test('Search Fossilized Bird', async ({ page }) => {
-  await fossilInitialSteps(page);
-  await selectFossil(page, 'fossilized-bird');
+  await test.step("fossil initial steps", async () => {
+    await fossilInitialSteps(page);
+  });
+  await test.step("select fossil", async () => {
+    await selectFossil(page, 'fossilized-bird');
+  });
 });
 
 test('Search Fossilized Fish', async ({ page }) => {
-  await fossilInitialSteps(page);
-  await selectFossil(page, 'fossilized-fish');
+  await test.step("fossil initial steps", async () => {
+    await fossilInitialSteps(page);
+  });
+  await test.step("select fossil", async () => {
+    await selectFossil(page, 'fossilized-fish');
+  });
 });
 
 test('Search Fossilized Drake', async ({ page }) => {
-  await fossilInitialSteps(page);
-  await selectFossil(page, 'fossilized-drake');
+  await test.step("fossil initial steps", async () => {
+    await fossilInitialSteps(page);
+  });
+  await test.step("select fossil", async () => {
+    await selectFossil(page, 'fossilized-drake');
+  });
 });
 
 test('Search Fossilized Dino', async ({ page }) => {
-  await fossilInitialSteps(page);
-  await selectFossil(page, 'fossilized-dino');
+  await test.step("fossil initial steps", async () => {
+    await fossilInitialSteps(page);
+  });
+  await test.step("select fossil", async () => {
+    await selectFossil(page, 'fossilized-dino');
+  });
 });
