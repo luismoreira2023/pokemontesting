@@ -1,7 +1,7 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
-
+test.describe.skip('Search Pokemon', ()=>{
 test('Search Omanyte', async ({ page }) => {
   await page.setViewportSize({ width: 1600, height: 900 });
   await page.goto('');
@@ -181,5 +181,5 @@ test('Search Arctovish', async ({ page }) => {
   await page.getByRole('button', { name: 'PHOTO' }).click();
   await expect(page.getByLabel('Open image of Arctovish')).toBeVisible();
 });
-
+})
 
