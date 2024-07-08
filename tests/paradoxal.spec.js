@@ -2,6 +2,7 @@
 const { test, expect } = require('@playwright/test');
 
 const selectPokemon = async (page, pokemon) => {
+  await page.setViewportSize({ width: 1600, height: 900 });
   await page.goto('');
   await expect(page).toHaveTitle(/Pokedex/);
   await page.getByLabel('POKÉMON Button').click();

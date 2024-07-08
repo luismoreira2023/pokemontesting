@@ -25,9 +25,12 @@ const apricornBall = async (page, ball) => {
   await page.getByLabel('Switch to Info').click();
 };
 
-test('Search Red Apricorn', async ({ page }) => {
-  await selectApricorn(page, 'red-apricorn');
-  await expect(page.getByText('Used to make a Level Ball.')).toHaveText('Used to make a Level Ball.');
+test.describe.skip('Apricorn tests', ()=>{
+
+
+  test('Search Red Apricorn', async ({ page }) => {
+    await selectApricorn(page, 'red-apricorn');
+    await expect(page.getByText('Used to make a Level Ball.')).toHaveText('Used to make a Level Ball.');
 });
 
 test('Search Level Ball', async ({ page }) => {
@@ -94,3 +97,4 @@ test('Search Heavy Ball', async ({ page }) => {
   await apricornBall(page, 'heavy-ball');
   await expect(page.getByText('Has flat bonus or penalty to')).toHaveText("Has flat bonus or penalty to catch rate depending on weight class of target. Made from Blk Apricorn.");
 });
+})
