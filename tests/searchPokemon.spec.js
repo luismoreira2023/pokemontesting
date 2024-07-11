@@ -1,185 +1,107 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
-
-test('Search Omanyte', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Omanyte');
-  await page.getByLabel('Select the pokemon Omanyte').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Omanyte')).toBeVisible();
+test('Get Omanyte', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon-species/omanyte/');
+  const pokemon = await response.json();
+  console.log(pokemon.flavor_text_entries[0].flavor_text);
+  await expect(pokemon.flavor_text_entries[0].flavor_text).toBe("Although long\nextinct, in rare\ncases, it can be\fgenetically\nresurrected from\nfossils.");
 });
 
-test('Search Kabuto', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Kabuto');
-  await page.getByLabel('Select the pokemon kabuto', { exact: true }).click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Kabuto')).toBeVisible();
+test('Get Kabuto', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon-species/kabuto/');
+  const pokemon = await response.json();
+  console.log(pokemon.flavor_text_entries[0].flavor_text);
+  await expect(pokemon.flavor_text_entries[0].flavor_text).toBe("A POKéMON that\nwas resurrected\nfrom a fossil\ffound in what was\nonce the ocean\nfloor eons ago.");
 });
 
-test('Search Aerodactyl', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Aerodactyl');
-  await page.getByLabel('Select the pokemon Aerodactyl').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Aerodactyl')).toBeVisible();
+test('Get Aerodactyl', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon-species/aerodactyl/');
+  const pokemon = await response.json();
+  console.log(pokemon.flavor_text_entries[0].flavor_text);
+  await expect(pokemon.flavor_text_entries[0].flavor_text).toBe("A Pokémon that roamed the skies\nin the dinosaur era. Its teeth are\nlike saw blades.");
 });
 
-test('Search Lileep', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Lileep');
-  await page.getByLabel('Select the pokemon Lileep').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Lileep')).toBeVisible();
+test('Get Lileep', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon-species/lileep/');
+  const pokemon = await response.json();
+  console.log(pokemon.flavor_text_entries[0].flavor_text);
+  await expect(pokemon.flavor_text_entries[0].flavor_text).toBe("LILEEP became extinct approximately\na hundred million years ago.\nThis ancient POKéMON attaches itself\fto a rock on the seafloor and catches\napproaching prey using tentacles \nshaped like flower petals.");
 });
 
-test('Search Anorith', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Anorith');
-  await page.getByLabel('Select the pokemon Anorith').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Anorith')).toBeVisible();
+test('Get Anorith', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon-species/anorith/');
+  const pokemon = await response.json();
+  console.log(pokemon.flavor_text_entries[0].flavor_text);
+  await expect(pokemon.flavor_text_entries[0].flavor_text).toBe("ANORITH was regenerated from a\nprehistoric fossil. This primitive\nPOKéMON once lived in warm seas.\fIt grips its prey firmly between its\ntwo large claws.");
 });
 
-test('Search Cranidos', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Cranidos');
-  await page.getByLabel('Select the pokemon Cranidos').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Cranidos')).toBeVisible();
+test('Get Cranidos', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon-species/cranidos/');
+  const pokemon = await response.json();
+  console.log(pokemon.flavor_text_entries[0].flavor_text);
+  await expect(pokemon.flavor_text_entries[0].flavor_text).toBe("It lived in jungles around 100\nmillion years ago. Its skull is as\nhard as iron.");
 });
 
-test('Search Shieldon', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Shieldon');
-  await page.getByLabel('Select the pokemon Shieldon').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Shieldon')).toBeVisible();
+test('Get Shieldon', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon-species/shieldon/');
+  const pokemon = await response.json();
+  console.log(pokemon.flavor_text_entries[0].flavor_text);
+  await expect(pokemon.flavor_text_entries[0].flavor_text).toBe("A Pokémon that lived in jungles\naround 100 million years ago. Its\nfacial hide is extremely hard.");
 });
 
-test('Search Tirtouga', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Tirtouga');
-  await page.getByLabel('Select the pokemon Tirtouga').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Tirtouga')).toBeVisible();
+test('Get Tirtouga',async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon-species/tirtouga/');
+  const pokemon = await response.json();
+  console.log(pokemon.flavor_text_entries[1].flavor_text);
+  await expect(pokemon.flavor_text_entries[1].flavor_text).toBe("Restored from a fossil, this Pokémon\ncan dive to depths beyond half a mile.");
 });
 
-test('Search Archen', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Archen');
-  await page.getByLabel('Select the pokemon Archen').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Archen')).toBeVisible();
+test('Get Archen', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon-species/archen/');
+  const pokemon = await response.json();
+  console.log(pokemon.flavor_text_entries[1].flavor_text);
+  await expect(pokemon.flavor_text_entries[1].flavor_text).toBe("Said to be an ancestor of bird Pokémon,\nthey were unable to fly and moved about\nby hopping from one branch to another.");
 });
 
-test('Search Tyrunt', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Tyrunt');
-  await page.getByLabel('Select the pokemon Tyrunt').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Tyrunt')).toBeVisible();
+test('Get Tyrunt', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon-species/tyrunt/');
+  const pokemon = await response.json();
+  console.log(pokemon.flavor_text_entries[6].flavor_text);
+  await expect(pokemon.flavor_text_entries[6].flavor_text).toBe("This Pokémon was restored from a fossil.\nIf something happens that it doesn’t like,\nit throws a tantrum and runs wild.");
 });
 
-test('Search Amaura', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Amaura');
-  await page.getByLabel('Select the pokemon Amaura').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Amaura')).toBeVisible();
+test('Get Amaura', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon-species/amaura/');
+  const pokemon = await response.json();
+  console.log(pokemon.flavor_text_entries[6].flavor_text);
+  await expect(pokemon.flavor_text_entries[6].flavor_text).toBe("This ancient Pokémon was restored\nfrom part of its body that had been\nfrozen in ice for over 100 million years.");
 });
 
-test('Search Dracozolt', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Dracozolt');
-  await page.getByLabel('Select the pokemon Dracozolt').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Dracozolt')).toBeVisible();
+test('Get Dracozolt', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon-species/dracozolt/');
+  const pokemon = await response.json();
+  console.log(pokemon.flavor_text_entries[7].flavor_text);
+  await expect(pokemon.flavor_text_entries[7].flavor_text).toBe("In ancient times, it was unbeatable thanks to its\npowerful lower body, but it went extinct anyway\nafter it depleted all its plant-based food sources.");
 });
 
-test('Search Arctozolt', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Arctozolt');
-  await page.getByLabel('Select the pokemon Arctozolt').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Arctozolt')).toBeVisible();
+test('Get Arctozolt', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon-species/arctozolt/');
+  const pokemon = await response.json();
+  console.log(pokemon.flavor_text_entries[7].flavor_text);
+  await expect(pokemon.flavor_text_entries[7].flavor_text).toBe("The shaking of its freezing upper half is what\ngenerates its electricity. It has a hard time\nwalking around.");
 });
 
-test('Search Dracovish', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Dracovish');
-  await page.getByLabel('Select the pokemon Dracovish').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Dracovish')).toBeVisible();
+test('Get Dracovish', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon-species/dracovish/');
+  const pokemon = await response.json();
+  console.log(pokemon.flavor_text_entries[7].flavor_text);
+  await expect(pokemon.flavor_text_entries[7].flavor_text).toBe("Powerful legs and jaws made it the apex predator\nof its time. Its own overhunting of its prey was\nwhat drove it to extinction.");
 });
 
-test('Search Arctovish', async ({ page }) => {
-  await page.setViewportSize({ width: 1600, height: 900 });
-  await page.goto('');
-  await expect(page).toHaveTitle(/Pokedex/);
-  await page.getByRole('button', { name: 'POKÉMON' }).click();
-  await expect(page.getByPlaceholder('Search pokémon...')).toBeVisible();
-  await page.getByPlaceholder('Search pokémon...').fill('Arctovish');
-  await page.getByLabel('Select the pokemon Arctovish').click();
-  await page.getByRole('button', { name: 'PHOTO' }).click();
-  await expect(page.getByLabel('Open image of Arctovish')).toBeVisible();
+test('Get Arctovish', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon-species/arctovish/');
+  const pokemon = await response.json();
+  console.log(pokemon.flavor_text_entries[7].flavor_text);
+  await expect(pokemon.flavor_text_entries[7].flavor_text).toBe("Though it’s able to capture prey by freezing its\nsurroundings, it has trouble eating the prey\nafterward because its mouth is on top of its head.");
 });
-
-
