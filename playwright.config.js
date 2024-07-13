@@ -26,19 +26,19 @@ module.exports = defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'https://brunomachadors.github.io/pokedex/',
-    
+
     // Default resolution
-    viewport:{
+    viewport: {
       width: 1600,
-      height: 900
+      height: 900,
     },
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
-  timeout: 100000,
+  timeout: 15000,
   expect: {
-    timeout: 100000,
+    timeout: 15000,
   },
   /* Configure projects for major browsers */
   projects: [
@@ -85,4 +85,3 @@ module.exports = defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
-
