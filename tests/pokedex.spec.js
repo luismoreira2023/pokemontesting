@@ -16,7 +16,7 @@ const selectPokemon = async (page, pokemon, index) => {
   await page.getByLabel('Switch to Info').click();
 };
 
-test.describe('Pokemon Pokedex', () => {
+test.describe.serial('Pokemon Pokedex', () => {
   test('Search Bulbasaur', async ({ page }) => {
     await pokemonInitialSteps(page);
     await selectPokemon(page, 'bulbasaur', '1');

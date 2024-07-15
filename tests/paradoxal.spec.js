@@ -14,7 +14,7 @@ const selectPokemon = async (page, pokemon, index) => {
   await page.getByLabel('Switch to Info').click();
 };
 
-test.describe('Pokemon paradoxal', () => {
+test.describe.serial('Pokemon paradoxal', () => {
   test('Search Great Tusk', async ({ page }) => {
     await selectPokemon(page, 'great-tusk', '7');
     await expect(page.getByLabel('GROUND')).toHaveText('GROUND');

@@ -1,7 +1,7 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
-test.describe('Pokemon Search Tests', () => {
+test.describe.serial('Pokemon Search Tests', () => {
   test('Search Omanyte', async ({ page }) => {
     await page.setViewportSize({ width: 1600, height: 900 });
     await page.goto('');
