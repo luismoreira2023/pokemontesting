@@ -96,3 +96,29 @@ test('Get Ice Stone', async ({ page }) => {
   console.log(item.effect_entries[0].short_effect);
   await expect(item.effect_entries[0].short_effect).toBe("Evolves an Alola Sandshrew into Alola Sandslash or an Alola Vulpix into Alola Ninetales.");
 });
+
+test('Get Upgrade', async ({ page }) => {
+  await page.goto('');
+  await page.getByLabel('ITEMS Button').click();
+  await expect(page.getByLabel('Select Item')).toBeVisible();
+  await page.getByRole('button', { name: '1' }).click();
+  await page.getByLabel('Select the item up-grade').click();
+  await page.getByLabel('Switch to Photo').click();
+  await expect(page.getByLabel('Image of up-grade')).toBeVisible();
+  await expect(page.getByText('Category:EVOLUTION')).toBeVisible();
+  await page.getByLabel('Switch to Info').click();
+  await expect(page.getByText('Traded on a Porygon: Holder')).toHaveText("Traded on a Porygon: Holder evolves into Porygon2.");
+});
+
+test('Get Whipped Dream', async ({ page }) => {
+  await page.goto('');
+  await page.getByLabel('ITEMS Button').click();
+  await expect(page.getByLabel('Select Item')).toBeVisible();
+  await page.getByRole('button', { name: '3' }).click();
+  await page.getByLabel('Select the item whipped-dream').click();
+  await page.getByLabel('Switch to Photo').click();
+  await expect(page.getByLabel('Image of whipped-dream')).toBeVisible();
+  await expect(page.getByText('Category:EVOLUTION')).toBeVisible();
+  await page.getByLabel('Switch to Info').click();
+  await expect(page.getByText('Traded on a Swirlix: Holder')).toHaveText("Traded on a Swirlix: Holder evolves into Slurpuff.");
+});
