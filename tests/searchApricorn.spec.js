@@ -27,7 +27,7 @@ const apricornBall = async (page, ball) => {
   await page.getByLabel('Switch to Info').click();
 };
 
-test.describe.serial('Apricorn Search Tests', () => {
+test.describe('Apricorn Search Tests', () => {
   test('Search Red Apricorn', async ({ page }) => {
     await selectApricorn(page, 'red-apricorn');
     await expect(page.getByText('Used to make a Level Ball.')).toHaveText(
