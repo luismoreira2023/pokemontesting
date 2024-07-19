@@ -142,3 +142,55 @@ test('Get Pokémon evolution from Wobbuffet', async ({ page }) => {
   console.log('Wobbuffet evolves from ' + baby_form);
   expect (baby_form).toBe('wynaut');
 });
+
+test('Get Pokémon evolutions from Nincada', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon/290/');
+  const pokemon = await response.json();
+  //console.log(pokemon.species.url);
+  const speciesResponse = await page.request.get(pokemon.species.url);
+  const species = await speciesResponse.json();
+  //console.log(species.evolution_chain);
+  const evolutionChainResponse = await page.request.get(species.evolution_chain.url);
+  const evolutionChain = await evolutionChainResponse.json();
+  //console.log(evolutionChain.chain.evolves_to);
+  console.log('Nincada evolves to ' + evolutionChain.chain.evolves_to[0].species.name);
+  expect (evolutionChain.chain.evolves_to[0].species.name).toBe('ninjask');
+  console.log('Nincada evolves to ' + evolutionChain.chain.evolves_to[1].species.name);
+  expect (evolutionChain.chain.evolves_to[1].species.name).toBe('shedinja');
+});
+
+test('Get Pokémon evolutions from Roselia', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon/315/');
+  const pokemon = await response.json();
+  //console.log(pokemon);
+  const speciesResponse = await page.request.get(pokemon.species.url);
+  const species = await speciesResponse.json();
+  //console.log(species);
+  const evolutionChainResponse = await page.request.get(species.evolution_chain.url);
+  const evolutionChain = await evolutionChainResponse.json();
+  //console.log(evolutionChain);
+  const baby_form = evolutionChain.chain.species.name;
+  console.log('Roselia evolves from ' + baby_form);
+  expect (baby_form).toBe('budew');
+  const evolution = evolutionChain.chain.evolves_to[0].evolves_to[0].species.name;
+  console.log('Roselia evolves to ' + evolution);
+  expect (evolution).toBe('roserade');
+});
+
+test('Get Pokémon evolutions from Electabuzz', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon/125/');
+  const pokemon = await response.json();
+  //console.log(pokemon);
+  const speciesResponse = await page.request.get(pokemon.species.url);
+  const species = await speciesResponse.json();
+  //console.log(species);
+  const evolutionChainResponse = await page.request.get(species.evolution_chain.url);
+  const evolutionChain = await evolutionChainResponse.json();
+  //console.log(evolutionChain);
+  const baby_form = evolutionChain.chain.species.name;
+  console.log('Electabuzz evolves from ' + baby_form);
+  expect (baby_form).toBe('elekid');
+  const evolution = evolutionChain.chain.evolves_to[0].evolves_to[0].species.name;
+  console.log('Electabuzz evolves to ' + evolution);
+  expect (evolution).toBe('electivire');
+});
