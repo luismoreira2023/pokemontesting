@@ -142,3 +142,19 @@ test('Get Pokémon evolution from Wobbuffet', async ({ page }) => {
   console.log('Wobbuffet evolves from ' + baby_form);
   expect (baby_form).toBe('wynaut');
 });
+
+test('Get Pokémon evolutions from Nincada', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon/290/');
+  const pokemon = await response.json();
+  //console.log(pokemon.species.url);
+  const speciesResponse = await page.request.get(pokemon.species.url);
+  const species = await speciesResponse.json();
+  //console.log(species.evolution_chain);
+  const evolutionChainResponse = await page.request.get(species.evolution_chain.url);
+  const evolutionChain = await evolutionChainResponse.json();
+  //console.log(evolutionChain.chain.evolves_to);
+  console.log('Nincada evolves to ' + evolutionChain.chain.evolves_to[0].species.name);
+  expect (evolutionChain.chain.evolves_to[0].species.name).toBe('ninjask');
+  console.log('Nincada evolves to ' + evolutionChain.chain.evolves_to[1].species.name);
+  expect (evolutionChain.chain.evolves_to[1].species.name).toBe('shedinja');
+});
