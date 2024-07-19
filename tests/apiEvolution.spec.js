@@ -158,3 +158,21 @@ test('Get Pokémon evolutions from Nincada', async ({ page }) => {
   console.log('Nincada evolves to ' + evolutionChain.chain.evolves_to[1].species.name);
   expect (evolutionChain.chain.evolves_to[1].species.name).toBe('shedinja');
 });
+
+test('Get Pokémon evolutions from Roselia', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon/315/');
+  const pokemon = await response.json();
+  //console.log(pokemon);
+  const speciesResponse = await page.request.get(pokemon.species.url);
+  const species = await speciesResponse.json();
+  //console.log(species);
+  const evolutionChainResponse = await page.request.get(species.evolution_chain.url);
+  const evolutionChain = await evolutionChainResponse.json();
+  //console.log(evolutionChain.);
+  const baby_form = evolutionChain.chain.species.name;
+  console.log('Roselia evolves from ' + baby_form);
+  expect (baby_form).toBe('budew');
+  const evolution = evolutionChain.chain.evolves_to[0].evolves_to[0].species.name;
+  console.log('Roselia evolves to ' + evolution);
+  expect (evolution).toBe('roserade');
+});
