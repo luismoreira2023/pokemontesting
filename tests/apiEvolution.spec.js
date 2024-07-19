@@ -168,11 +168,29 @@ test('Get Pokémon evolutions from Roselia', async ({ page }) => {
   //console.log(species);
   const evolutionChainResponse = await page.request.get(species.evolution_chain.url);
   const evolutionChain = await evolutionChainResponse.json();
-  //console.log(evolutionChain.);
+  //console.log(evolutionChain);
   const baby_form = evolutionChain.chain.species.name;
   console.log('Roselia evolves from ' + baby_form);
   expect (baby_form).toBe('budew');
   const evolution = evolutionChain.chain.evolves_to[0].evolves_to[0].species.name;
   console.log('Roselia evolves to ' + evolution);
   expect (evolution).toBe('roserade');
+});
+
+test('Get Pokémon evolutions from Electabuzz', async ({ page }) => {
+  const response = await page.request.get('https://pokeapi.co/api/v2/pokemon/125/');
+  const pokemon = await response.json();
+  //console.log(pokemon);
+  const speciesResponse = await page.request.get(pokemon.species.url);
+  const species = await speciesResponse.json();
+  //console.log(species);
+  const evolutionChainResponse = await page.request.get(species.evolution_chain.url);
+  const evolutionChain = await evolutionChainResponse.json();
+  //console.log(evolutionChain);
+  const baby_form = evolutionChain.chain.species.name;
+  console.log('Electabuzz evolves from ' + baby_form);
+  expect (baby_form).toBe('elekid');
+  const evolution = evolutionChain.chain.evolves_to[0].evolves_to[0].species.name;
+  console.log('Electabuzz evolves to ' + evolution);
+  expect (evolution).toBe('electivire');
 });
